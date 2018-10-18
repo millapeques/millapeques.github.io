@@ -1,0 +1,98 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner desktop_menu">
+		<a class="brand logo" href="/">
+			<img src="/assets/img/logo.png" alt="" />
+		</a>
+		<nav id="main_menu">
+			<ul class="nav topnav">
+				<li class="dropdown success"  id="m_inicio">
+					<a href="/"><i class="fa fa-home"></i> Inicio</a>
+				</li>
+				<li class="dropdown primary" id="m_nos">
+					<a href="javascript:void(0);"><i class="fa fa-users"></i> Nos</a>
+					<ul class="dropdown-menu">
+							<li><a href="/?nos/directiva">Directiva</a></li>
+							<li><a href="/content/docs/xerais/Estatutos da asociacion.pdf">Estatutos</a></li>
+							<li><a href="/?nos/asociate">Faite socio</a></li>
+					</ul>
+				</li>
+				<li class="dropdown danger"  id="m_extraescolares">
+					<a href="/?iniciativas/actividades-extraescolares"><i class="fa fa-puzzle-piece"></i> Actividades extraescolares</a>
+				</li>
+				<li class="dropdown info" id="m_conciliacion">
+					<a href="javascript:void(0);"><i class="fa fa-toolbox"></i> Conciliación</a>
+					<ul class="dropdown-menu">
+						<li><a href="/?conciliacion/bonos">Bonos</a></li>
+						<li><a href="/?conciliacion/bos-dias">Bos días</a></li>
+						<li><a href="/?conciliacion/comedor">Comedor</a></li>
+						<li><a href="/?conciliacion/tardes-divertidas">Tardes divertidas</a></li>
+					</ul>
+				</li>
+				<li class="dropdown inverse"  id="m_blog">
+					<a href="/?listaxe-novas"><i class="fa fa-bullhorn"></i> Novas</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="navbar mobile_menu responsive">
+		<div class="desplegable">
+			<img src="/assets/img/logo.png" alt="" />
+			<button class="pull-right btn btn-icon btn-inverse" onclick="desplegarMenuMovil()"><i class="fa fa-bars"></i></button>
+		</div>
+		<div class="nav_mobile hide-element">
+			<button class="accordion_menu_mobile btn-success" data-target="/"><i class="fa fa-home"></i> Inicio</button>
+			<button class="accordion_menu_mobile btn-primary primary"><i class="fa fa-users"></i> Nos</button>
+			<div class="panel">
+				<a href="/?nos/directiva">Directiva</a>
+				<a href="/content/docs/xerais/Estatutos da asociacion.pdf">Estatutos</a>
+				<a href="/?nos/asociate">Faite socio</a>
+			</div>
+
+			<button class="accordion_menu_mobile btn-danger" data-target="/?iniciativas/actividades-extraescolares"><i class="fa fa-puzzle-piece"></i> Actividades extraescolares</button>
+			<button class="accordion_menu_mobile btn-info"><i class="fa fa-toolbox"></i>Conciliación</button>
+			<div class="panel">
+				<a href="/?conciliacion/bonos">Bonos</a>
+				<a href="/?conciliacion/bos-dias">Bos días</a>
+				<a href="/?conciliacion/comedor">Comedor</a>
+				<a href="/?conciliacion/tardes-divertidas">Tardes divertidas</a>
+			</div>
+			<button class="accordion_menu_mobile btn-inverse" data-target="/?novas"><i class="fa fa-bullhorn"></i> Novas</button>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var acc = document.getElementsByClassName("accordion_menu_mobile");
+	for (var i = 0; i < acc.length; i++) {
+		acc[i].addEventListener("click", function() {
+			console.log("active click");
+			for(var j=0; j<acc.length;j++){
+				var panel = acc[j].nextElementSibling;
+
+				if(acc[j]!= this)
+				{
+						acc[j].classList.remove("active");
+						if(panel)
+							panel.style.maxHeight = null;
+				}
+				else
+				{
+					console.log("lerele");
+					if(acc[j].hasAttribute("data-target"))
+						window.location.href = this.getAttribute("data-target");
+					else{
+						acc[j].classList.toggle("active");
+						panel.style.maxHeight = panel.scrollHeight + "px";
+					}
+				}
+			}
+		});
+	}
+
+	function desplegarMenuMovil(){
+		$(".nav_mobile").toggleClass("hide-element");
+		$(".nav_mobile").toggleClass("show-element");
+	}
+</script>
