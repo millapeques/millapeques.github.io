@@ -1897,6 +1897,9 @@ ul.portfolio-area li {
 }
 .navbar-inner{border-bottom: 0;}
 #home_carousel{padding-top:80px;}
-.listaxe-novas .imagen_noticia{}
+.listaxe-novas .imagen_noticia{text-align:center;}
 .listaxe-novas article.blog-post{padding-bottom:0px;}
 .listaxe-novas .imagen_noticia img{height:120px;margin-bottom: 0;}
+.listaxe-novas article .headline{margin-bottom:0px;}
+#maincontent.directiva .portfolio-item2 h4{font-size:18px;}
+#maincontent.nova aside img{outline:none;}
